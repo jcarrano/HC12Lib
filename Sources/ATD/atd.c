@@ -397,7 +397,7 @@ static void hardwareInit(atd_module module)
 		ATD1_FAST_CLEAR(ON);
 		ATD1_INTERRUPT(ON);
 		ATD1_FIFO(OFF);
-		ATD1_SET_DIVIDER(20);	// Max: 40 MHz
+		ATD1_SET_DIVIDER(30);	
 		ATD1_SAMPLE_TIME(LENGTH_2);
 		ATD1_POWER(ON);
 		ATD1_FLAG_CLR();

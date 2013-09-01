@@ -16,11 +16,11 @@
 #define FJOY_BUTTONS 11
 
 // Connections
-#define FJOY_ATD_MODULE ATD0
-#define FJOY_YAW_CHANN 1
-#define FJOY_ROLL_CHANN 0
-#define FJOY_PITCH_CHANN 3
-#define FJOY_ELEV_CHANN 2
+#define FJOY_ATD_MODULE ATD1
+#define FJOY_ELEV_CHANN 0
+#define FJOY_ROLL_CHANN 1
+#define FJOY_PITCH_CHANN 2
+#define FJOY_YAW_CHANN 3
 
 #define FJOY_TRIGGER 0
 #define FJOY_UP 1

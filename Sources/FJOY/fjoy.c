@@ -1,6 +1,7 @@
 #include "fjoy.h"
 #include "rti.h"
 #include "error.h"
+#include <stdio.h>
 
 #define FJOY_READ_CHANNEL(chann, cb) atd_SetTask(FJOY_ATD_MODULE, chann, FJOY_ATD_OVERSAMPLING, _FALSE, _FALSE, cb)
 
@@ -197,7 +198,7 @@ void fjoy_UpdateStatus (void *data, rti_time period, rti_id id)
 		
 		fjoy_data.buttonCount[i] = 0;
 	}*/
-	
+
 	// Scaling
 	fjoy_data.yawAvg = LINEAR_SCALE_S(fjoy_data.yawAvg, YAW_MIN, YAW_MAX, YAW_REST);
 	fjoy_data.rollAvg = LINEAR_SCALE_S(fjoy_data.rollAvg, ROLL_MIN, ROLL_MAX, ROLL_REST);
@@ -216,7 +217,6 @@ void fjoy_UpdateStatus (void *data, rti_time period, rti_id id)
 	fjoy_status.pitch = SATURATE_S(fjoy_data.pitchAvg, FJOY_ROLL_BITS);
 	fjoy_status.elev = SATURATE_U(fjoy_data.elevAvg, FJOY_ELEV_BITS);
 	
-
 	for (i = 0; i < FJOY_MAX_CALLBACKS; i++)
 		if (fjoy_data.callback[i] != NULL)
 			(*fjoy_data.callback[i]) ();

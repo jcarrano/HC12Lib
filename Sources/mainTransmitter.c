@@ -121,6 +121,6 @@ void fjoy_Callback(void)
 	
 	nrf_StoreAckPayload (&transmitData, sizeof(transmitData));
 
-	memset(lcd_memory, ' ' , LCD_MEMORY/4);
+	memset(lcd_memory, ' ' , LCD_MEMORY);
 	sprintf(lcd_memory, "%d", (int)comm_ProcessElev(transmitData.elev));
 }
