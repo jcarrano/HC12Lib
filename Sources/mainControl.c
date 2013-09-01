@@ -303,6 +303,16 @@ void main (void)
 			setpoint.attitude = aux;
 			break;
 			}
+			
+		case 'r':
+		case 'R':
+			asm sei;
+			PosGain.x = prop_gain_frac_xy;
+			PosGain.y = prop_gain_frac_xy;
+			VelGain.x = der_gain_int_xy;
+			VelGain.y = der_gain_int_xy;
+			asm cli;
+			break;
 		case 'M':
 			asm sei;
 			PosGain.x += 200;
@@ -352,8 +362,6 @@ void main (void)
 			VelGain.y -= 10;
 			asm cli;
 			break;
-		
-		VelGain
 		/*
 		case 'f':
 			{
