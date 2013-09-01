@@ -303,6 +303,57 @@ void main (void)
 			setpoint.attitude = aux;
 			break;
 			}
+		case 'M':
+			asm sei;
+			PosGain.x += 200;
+			PosGain.y += 200;
+			asm cli;
+			break;
+		case 'm':
+			asm sei;
+			PosGain.x += 20;
+			PosGain.y += 20;
+			asm cli;
+			break;
+		case 'N':
+			asm sei;
+			PosGain.x -= 200;
+			PosGain.y -= 200;
+			asm cli;
+			break;
+		case 'n':
+			asm sei;
+			PosGain.x -= 20;
+			PosGain.y -= 20;
+			asm cli;
+			break;
+		
+		case 'B':
+			asm sei;
+			VelGain.x += 100;
+			VelGain.y += 100;
+			asm cli;
+			break;
+		case 'b':
+			asm sei;
+			VelGain.x += 10;
+			VelGain.y += 10;
+			asm cli;
+			break;
+		case 'V':
+			asm sei;
+			VelGain.x -= 100;
+			VelGain.y -= 100;
+			asm cli;
+			break;
+		case 'v':
+			asm sei;
+			VelGain.x -= 10;
+			VelGain.y -= 10;
+			asm cli;
+			break;
+		
+		VelGain
 		/*
 		case 'f':
 			{

@@ -11,31 +11,13 @@
 
 controlData_T controlData = {{0,0,0,0}, {0, 0, 0}, {0,0,0}, 0};
 u8 int_Disable = 0;
-/*
-********** Control de actitud *************
- */
 
-/* Integral */
-#define int_gain_divide 8000
-#define integral_error_limit 250
+/* ************** */
+vec3 PosGain = {prop_gain_frac_xy, prop_gain_frac_xy, prop_gain_frac_z};
 
-/* Realimentación de posicion */
-#define prop_gain_frac_xy 6500
-#define prop_gain_frac_z 6500
+vec3_q8_8 VelGain = {der_gain_int_xy, der_gain_int_xy, der_gain_int_z};
 
-const vec3 PosGain = {prop_gain_frac_xy, prop_gain_frac_xy, prop_gain_frac_z};
-
-/* Realimentacion de velocidad */
-
-//#define der_gain_int_xy (1)
-//#define der_gain_int_z (1)
-//const ivec3 VelGain = {der_gain_int_xy, der_gain_int_xy, der_gain_int_z};
-
-#define der_gain_int_xy 256
-#define der_gain_int_z 280
-const vec3_q8_8 VelGain = {der_gain_int_xy, der_gain_int_xy, der_gain_int_z};
-
-/* * */
+/* ************** */
 
 #ifdef TRANSMIT_VEC3
 extern vec3 transmitData;
