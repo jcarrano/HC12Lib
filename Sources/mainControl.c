@@ -269,48 +269,48 @@ void main (void)
 		remote_data_arrived = _FALSE;
 		asm cli
 		
-#define INCL_REAL 31651
-#define INCL_IMAG 5997
+#define INCL_REAL 32737
+#define INCL_IMAG 1011
 		
 		switch (input) {
+		case '\0':
+			{
+			quat aux = UNIT_Q;
+			setpoint.attitude = aux;
+			break;
+			}
 		case 'a':
 			{
-			//quat aux = {32488, 3024, -3024, 0};
-			//quat aux = {INCL_REAL, INCL_IMAG, -INCL_IMAG, 0};
-			//setpoint.attitude = aux;
+			quat aux = {INCL_REAL, -INCL_IMAG, -INCL_IMAG, 0};
+			setpoint.attitude = aux;
 			break;
 			}
 		case 's':
 			{
-			//quat aux = UNIT_Q;
-			//setpoint.attitude = aux;
+			quat aux = {INCL_REAL, -INCL_IMAG, INCL_IMAG, 0};
+			setpoint.attitude = aux;
 			break;
 			}
 		case 'd':
 			{
-			//quat aux = {32488, -3024, 3024, 0};
-			//quat aux = {INCL_REAL, -INCL_IMAG, INCL_IMAG, 0};
-			//setpoint.attitude = aux;
+			quat aux = {INCL_REAL, INCL_IMAG, INCL_IMAG, 0};
+			setpoint.attitude = aux;
 			break;
 			}
 		case 'w':
 			{
-			//quat aux = {INCL_REAL, -INCL_IMAG, -INCL_IMAG, 0};
-			//setpoint.attitude = aux;
+			quat aux = {INCL_REAL, INCL_IMAG, -INCL_IMAG, 0};
+			setpoint.attitude = aux;
 			break;
 			}
-		case 'x':
-			{
-			//quat aux = {INCL_REAL, INCL_IMAG, INCL_IMAG, 0};
-			//setpoint.attitude = aux;
-			break;
-			}
+		/*
 		case 'f':
 			{
 			//quat aux = {23170, 0, 0, 23170};
 			//setpoint.attitude = aux;
 			break;
 			}
+		*/
 		case 'y':
 			int_Disable = 1;
 			break;
@@ -378,7 +378,7 @@ void main (void)
 		{
 	#ifdef FULL_FJOY
 		setpoint = comm_FjoyToSetpoint(&receiveDataCopy);
-	#elif (defined (THRUST_FJOY)
+	#elif (defined THRUST_FJOY)
 		u8 elev = receiveDataCopy.elev;
 		setpoint.thrust = comm_ProcessElev(elev);
 	#endif
